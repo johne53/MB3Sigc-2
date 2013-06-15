@@ -2,14 +2,14 @@
 /* Define to omit deprecated API from the library. */
 #undef SIGCXX_DISABLE_DEPRECATED
 
-/* Major version number of sigc++. */
-#undef SIGCXX_MAJOR_VERSION
+/* Major version number of sigc++. */ /* Defined by JE - 13-06-2013 (was previously #undef'd */
+#define SIGCXX_MAJOR_VERSION @SIGCXX_MAJOR_VERSION@
 
-/* Micro version number of sigc++. */
-#undef SIGCXX_MICRO_VERSION
+/* Micro version number of sigc++. */ /* Defined by JE - 13-06-2013 (was previously #undef'd */
+#define SIGCXX_MICRO_VERSION @SIGCXX_MICRO_VERSION@
 
-/* Minor version number of sigc++. */
-#undef SIGCXX_MINOR_VERSION
+/* Minor version number of sigc++. */ /* Defined by JE - 13-06-2013 (was previously #undef'd */
+#define SIGCXX_MINOR_VERSION @SIGCXX_MINOR_VERSION@
 
 /* Detect Win32 platform */
 #ifdef _WIN32

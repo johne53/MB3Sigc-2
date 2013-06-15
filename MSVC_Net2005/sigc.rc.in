@@ -1,9 +1,16 @@
+// Microsoft Visual C++ generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
 
 #include <winver.h>
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION @SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,1
- PRODUCTVERSION @SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,1
+ FILEVERSION @SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,@SIGCXX_INTERFACE_AGE@
+ PRODUCTVERSION @SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,@SIGCXX_INTERFACE_AGE@
  FILEFLAGSMASK 0
  FILEFLAGS 0x0L
  FILEOS VOS__WINDOWS32
@@ -16,15 +23,21 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "The libsigc++ development team (see AUTHORS)"
             VALUE "FileDescription", "The Typesafe Callback Framework for C++"
-            VALUE "FileVersion", "@PACKAGE_VERSION@"
+            VALUE "FileVersion", "@SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,@SIGCXX_INTERFACE_AGE@"
             VALUE "LegalCopyright", "Distribution is under the LGPL (see COPYING)"
-            VALUE "OriginalFilename", "sigc-@SIGCXX_API_VERSION@.dll"
+            VALUE "OriginalFilename", "libsigc-@SIGCXX_API_VERSION@.dll"
             VALUE "ProductName", "libsigc++"
-            VALUE "ProductVersion", "@PACKAGE_VERSION@"
+            VALUE "ProductVersion", "@SIGCXX_MAJOR_VERSION@, @SIGCXX_MINOR_VERSION@, @SIGCXX_MICRO_VERSION@, @SIGCXX_INTERFACE_AGE@"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
         VALUE "Translation", 0x409, 1200
     END
+END
+
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
 END

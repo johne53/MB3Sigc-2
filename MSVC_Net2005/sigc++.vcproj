@@ -129,7 +129,6 @@
 				RuntimeLibrary="2"
 				EnableEnhancedInstructionSet="1"
 				WarningLevel="3"
-				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -252,7 +251,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /Y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;$(Release32TargetFolder)\$(TargetName).dll&quot;&#x0D;&#x0A;copy /Y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;$(Release32TestSuiteFolder)\$(TargetName).dll&quot;&#x0D;&#x0A;copy /Y &quot;$(OutDir)\$(TargetName).lib&quot; &quot;$(GenericWin32LibraryFolder)\$(TargetName).lib&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++\*.h&quot; &quot;$(GenericIncludeFolder)\sigc++&quot;&#x0D;&#x0A;"
+				CommandLine="copy /Y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;$(Release32TargetFolder)\$(TargetName).dll&quot;&#x0D;&#x0A;copy /Y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;$(Release32TestSuiteFolder)\$(TargetName).dll&quot;&#x0D;&#x0A;copy /Y &quot;$(OutDir)\$(TargetName).lib&quot; &quot;$(GenericWin32LibraryFolder)\$(TargetName).lib&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++config.h&quot; &quot;$(GenericIncludeFolder)\sigc++&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++\*.h&quot; &quot;$(GenericIncludeFolder)\sigc++&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++\functors\*.h&quot; &quot;$(GenericIncludeFolder)\sigc++\functors&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++\adaptors\*.h&quot; &quot;$(GenericIncludeFolder)\sigc++\adaptors&quot;&#x0D;&#x0A;copy /Y &quot;..\sigc++\adaptors\lambda\*.h&quot; &quot;$(GenericIncludeFolder)\sigc++\adaptors\lambda&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>

@@ -11,7 +11,6 @@ $micro = 1;
 $binary_age = 301;
 $interface_age = 1;
 $current_minus_age = 0;
-$sigc_api_version = "2.0";
 
 sub process_file
 {

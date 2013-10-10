@@ -11,6 +11,7 @@ $micro = 1;
 $binary_age = 301;
 $interface_age = 1;
 $current_minus_age = 0;
+$exec_prefix = "lib";
 
 sub process_file
 {
@@ -39,14 +40,26 @@ sub process_file
 	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
 	    s/\@Release32TargetFolder@/$release32_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@prefix@/$prefix/g;
+	    s/\@exec_prefix@/$exec_prefix/g;
+	    s/\@includedir@/$generic_include_folder/g;
+	    s/\@libdir@/$generic_library_folder/g;
 	    print OUTPUT;
 	}
 }
 
-process_file ("sigc++config.h");
-
 my $command=join(' ',@ARGV);
-if ($command eq -buildall) {
+
+if (-1 != index($command, "-X64")) {
+	$sigc_api_version = "64-2.0";
+} else {
+	$sigc_api_version = "32-2.0";
+}
+
+process_file ("sigc++config.h");
+process_file ("sigc++.pc");
+
+if (-1 != index($command, "-buildall")) {
 	process_file ("MSVC_Net2005/sigc++.vsprops");
 	process_file ("MSVC_Net2005/sigc.rc");
 }

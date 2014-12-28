@@ -5,8 +5,8 @@ datarootdir=@datarootdir@
 datadir=@datadir@
 includedir=@includedir@
 
-docdir=${datarootdir}/doc/libsigc++-@SIGCXX_API_VERSION@
-doxytagfile=${docdir}/reference/libsigc++-@SIGCXX_API_VERSION@.tag
+docdir=${datarootdir}/doc/libsigc++-2.0
+doxytagfile=${docdir}/reference/libsigc++-2.0.tag
 htmlrefdir=${docdir}/reference/html
 htmlrefpub=http://library.gnome.org/devel/libsigc++/unstable/
 
@@ -14,5 +14,5 @@ Name: libsigc++
 Description: Typesafe signal and callback system for C++
 Version: @PACKAGE_VERSION@
 URL: http://libsigc.sourceforge.net/
-Libs: -L${libdir} -lsigc-@SIGCXX_API_VERSION@
-Cflags: -I${includedir}/sigc++-@SIGCXX_API_VERSION@ -I${libdir}/sigc++-@SIGCXX_API_VERSION@/include
+Libs: -L${libdir} -lsigc++@SIGCXX_API_VERSION@
+Cflags: -I${includedir}/sigc++ -I${libdir}/sigc++-2.0/include

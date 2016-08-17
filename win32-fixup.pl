@@ -66,10 +66,10 @@ if (-1 != index($command, "-X64")) {
 	$sigc_api_version = "32-2.0";
 }
 
-process_file ("sigc++config.h");
 process_file ("sigc++.pc");
 
 if (-1 != index($command, "-buildall")) {
+	process_file ("sigc++config.h");
 	process_file ("MSVC_Net2015/sigc++.props");
 	process_file ("MSVC_Net2015/sigc.rc");
 	process_file ("MSVC_Net2005/sigc++.vsprops");

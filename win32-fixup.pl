@@ -11,6 +11,8 @@ $micro = 1;
 $binary_age = 301;
 $interface_age = 1;
 $current_minus_age = 0;
+$sigc32_api_version = "32-2.0";
+$sigc64_api_version = "64-2.0";
 $exec_prefix = "lib";
 
 sub process_file
@@ -28,6 +30,8 @@ sub process_file
 	    s/\@SIGCXX_BINARY_AGE\@/$binary_age/g;
 	    s/\@SIGCXX_INTERFACE_AGE\@/$interface_age/g;
 	    s/\@SIGCXX_API_VERSION\@/$sigc_api_version/g;
+	    s/\@SIGC32_API_VERSION\@/$sigc32_api_version/g;
+	    s/\@SIGC64_API_VERSION\@/$sigc64_api_version/g;
 	    s/\@LT_CURRENT_MINUS_AGE\@/$current_minus_age/g;
 	    s/\@PACKAGE_STRING@/$package_string/g;
 	    s/\@PACKAGE_VERSION@/$package_version/g;
@@ -39,6 +43,12 @@ sub process_file
 	    s/\@Release32TestSuiteFolder@/$release32_testsuite_folder/g;
 	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
 	    s/\@Release32TargetFolder@/$release32_target_folder/g;
+	    s/\@GenericWin64LibraryFolder@/$generic_win64_library_folder/g;
+	    s/\@GenericWin64BinaryFolder@/$generic_win64_binary_folder/g;
+	    s/\@Debug64TestSuiteFolder@/$debug64_testsuite_folder/g;
+	    s/\@Release64TestSuiteFolder@/$release64_testsuite_folder/g;
+	    s/\@Debug64TargetFolder@/$debug64_target_folder/g;
+	    s/\@Release64TargetFolder@/$release64_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
 	    s/\@prefix@/$prefix/g;
 	    s/\@exec_prefix@/$exec_prefix/g;
@@ -60,6 +70,8 @@ process_file ("sigc++config.h");
 process_file ("sigc++.pc");
 
 if (-1 != index($command, "-buildall")) {
+	process_file ("MSVC_Net2015/sigc++.props");
+	process_file ("MSVC_Net2015/sigc.rc");
 	process_file ("MSVC_Net2005/sigc++.vsprops");
 	process_file ("MSVC_Net2005/sigc.rc");
 }

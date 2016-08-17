@@ -25,7 +25,7 @@ BEGIN
             VALUE "FileDescription", "The Typesafe Callback Framework for C++"
             VALUE "FileVersion", "@SIGCXX_MAJOR_VERSION@,@SIGCXX_MINOR_VERSION@,@SIGCXX_MICRO_VERSION@,@SIGCXX_INTERFACE_AGE@"
             VALUE "LegalCopyright", "Distribution is under the LGPL (see COPYING)"
-            VALUE "OriginalFilename", "libsigc-@SIGC32_API_VERSION@.dll"
+            VALUE "OriginalFilename", "libsigc-@SIGC64_API_VERSION@.dll"
             VALUE "ProductName", "libsigc++"
             VALUE "ProductVersion", "@SIGCXX_MAJOR_VERSION@, @SIGCXX_MINOR_VERSION@, @SIGCXX_MICRO_VERSION@, @SIGCXX_INTERFACE_AGE@"
         END

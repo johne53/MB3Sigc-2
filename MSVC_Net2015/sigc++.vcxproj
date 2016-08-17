@@ -135,11 +135,15 @@ copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName)
     <PreBuildEvent>
       <Message>Prepare configuration file(s)</Message>
       <Command>copy /Y "..\sigc++\adaptors\lambda\*.cc-in" "..\sigc++\adaptors\lambda\*.cc"
+
 copy /Y "..\sigc++\adaptors\lambda\*.h-in" "..\sigc++\adaptors\lambda\*.h"
+
 copy /Y "..\sigc++\adaptors\*.h-in" "..\sigc++\adaptors\*.h"
+
 copy /Y "..\sigc++\functors\*.h-in" "..\sigc++\functors\*.h"
+
 cd ..
-perl win32-fixup.pl
+perl win32-fixup.pl "-X64"
 </Command>
     </PreBuildEvent>
     <ClCompile>

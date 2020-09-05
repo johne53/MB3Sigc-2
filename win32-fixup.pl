@@ -50,6 +50,7 @@ sub process_file
 	    s/\@Debug64TargetFolder@/$debug64_target_folder/g;
 	    s/\@Release64TargetFolder@/$release64_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@LibraryExt@/$library_ext/g;
 	    s/\@prefix@/$prefix/g;
 	    s/\@exec_prefix@/$exec_prefix/g;
 	    s/\@includedir@/$generic_include_folder/g;
@@ -64,6 +65,12 @@ if (-1 != index($command, "-X64")) {
 	$sigc_api_version = "64-2.0";
 } else {
 	$sigc_api_version = "32-2.0";
+}
+
+if (-1 != index($command, "-linux")) {
+	$library_ext = ".a";
+} else {
+	$library_ext = ".lib";
 }
 
 process_file ("sigc++.pc");

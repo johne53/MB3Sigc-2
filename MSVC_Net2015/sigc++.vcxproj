@@ -23,20 +23,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -90,23 +90,23 @@
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <StringPooling>false</StringPooling>
       <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(OutDir)$(TargetName).dll" "$(Debug64TargetFolder)\$(TargetName).dll"
-copy /Y "$(OutDir)$(TargetName).dll" "$(Debug64TestSuiteFolder)\$(TargetName).dll"
-copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName).lib"
+      <Command>copy /Y "$(TargetPath)" "$(Debug64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Debug64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
       <Message>Use existing configuration file(s)</Message>
-      <Command>cd ..
-</Command>
+      <Command>cd ..</Command>
     </PreBuildEvent>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -117,6 +117,7 @@ copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName)
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -125,9 +126,9 @@ copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName)
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(OutDir)$(TargetName).dll" "$(Release64TargetFolder)\$(TargetName).dll"
-copy /Y "$(OutDir)$(TargetName).dll" "$(Release64TestSuiteFolder)\$(TargetName).dll"
-copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName).lib"
+      <Command>copy /Y "$(TargetPath)" "$(Release64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -135,13 +136,9 @@ copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName)
     <PreBuildEvent>
       <Message>Prepare configuration file(s)</Message>
       <Command>copy /Y "..\sigc++\adaptors\lambda\*.cc-in" "..\sigc++\adaptors\lambda\*.cc"
-
 copy /Y "..\sigc++\adaptors\lambda\*.h-in" "..\sigc++\adaptors\lambda\*.h"
-
 copy /Y "..\sigc++\adaptors\*.h-in" "..\sigc++\adaptors\*.h"
-
 copy /Y "..\sigc++\functors\*.h-in" "..\sigc++\functors\*.h"
-
 cd ..
 perl win32-fixup.pl "-X64"
 </Command>
@@ -156,6 +153,7 @@ perl win32-fixup.pl "-X64"
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -163,8 +161,8 @@ perl win32-fixup.pl "-X64"
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(OutDir)$(TargetName).dll" "$(Release64TestSuiteFolder)\$(TargetName).dll"
-copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName).lib"
+      <Command>copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
 mkdir "$(GenericLibraryFolder)\pkgconfig" 2&gt; NUL
 mkdir "$(GenericIncludeFolder)\sigc++\functors" 2&gt; NUL
 mkdir "$(GenericIncludeFolder)\sigc++\adaptors\lambda" 2&gt; NUL

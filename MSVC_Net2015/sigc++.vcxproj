@@ -87,7 +87,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>false</StringPooling>
       <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
@@ -102,6 +102,9 @@ copy /Y "$(TargetPath)" "$(Debug64TestSuiteFolder)\$(TargetName)$(TargetExt)"
 copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
 </Command>
     </PostBuildEvent>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
@@ -131,6 +134,9 @@ copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
 copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
 </Command>
     </PostBuildEvent>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'">
     <PreBuildEvent>
@@ -151,7 +157,7 @@ perl win32-fixup.pl "-X64"
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
@@ -174,6 +180,9 @@ copy /Y "..\sigc++\adaptors\lambda\*.h" "$(GenericIncludeFolder)\sigc++\adaptors
 copy /Y "..\sigc++.pc" "$(GenericLibraryFolder)\pkgconfig\sigc++-2.0.pc"
 </Command>
     </PostBuildEvent>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\sigc++\adaptors\lambda\lambda.cc" />
